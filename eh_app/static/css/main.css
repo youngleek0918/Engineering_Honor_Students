@@ -1,0 +1,68 @@
+html{
+  display: inline-block;
+}
+
+.page-header {
+    background-color: #500000;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.top-left{
+    float: right;
+    color: white;
+}
+
+.top-left a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.index-content{
+  font-family: arial;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.grid-list-header{
+    display: grid;
+    grid-template-columns: 10% 15% 10% 12% 20% 8% 8% 6% 10% 14% 10% 10% 10% 10% 15%;
+    color: white;
+    /* margin-left: 3%; */
+    font-size: 12px;
+}
+
+.grid-list-header div{
+    background-color: black;
+    border: 1px solid gray;
+    padding: 10px;
+}
+
+.grid-list{
+    display: grid;
+    grid-template-columns: 10% 15% 10% 12% 20% 8% 8% 6% 10% 14% 10% 10% 10% 10% 15%;
+    /* margin-left: 3%; */
+}
+
+.grid-list div{
+    background-color: #1a1221;
+    border: 1px solid gray;
+    padding: 10px;
+    color: white;
+}
+
+.student-list-content a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.student-list-content{
+  margin-left: 3%;
+}
+
+.index-content a{
+  text-decoration: none;
+  color: inherit;
+}

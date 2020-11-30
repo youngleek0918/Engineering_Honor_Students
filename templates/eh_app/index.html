@@ -1,0 +1,18 @@
+{% extends 'eh_app/top-bar.html' %}
+
+{% block content %}
+
+  <div class="index-content">
+    {% if user.is_authenticated %}
+    <div class="row">
+      <button class="btn btn-primary"><a href="{% url 'student_list' %}">See student list</a></button>
+    </div>
+    <!------- SETTINGS BUTTON DOES NOTHING RIGHT NOW<div class="row"> <br>
+      <button class="btn btn-primary"><a href="#">Settings</a></button>
+    </div> ------->
+    {% else %}
+    <p>Please login to continue</p>
+    {% endif %}
+  </div>
+
+{% endblock %}

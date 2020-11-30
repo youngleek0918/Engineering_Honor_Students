@@ -1,0 +1,258 @@
+- model: eh_app.Activity
+  pk: 1 # This is the primary key. Either id or first field if not there
+  fields:
+    date: 2019-2-18
+    location: ETB room 2001
+    details: Lecture by Prof. Pauline Wade
+    semester: 201911 # Relates to primary key of the related element
+    requirement_satisfied: 1
+
+- model: eh_app.Advisor
+  fields:
+    uin: 125003892
+    first_name: Rachel
+    last_name: Johnson
+    track: EH-CSCE # Relates to primary key of the Track
+- model: eh_app.Advisor
+  fields:
+    uin: 342001234
+    first_name: Joseph
+    last_name: Korr
+    track: EH-CSCE # Relates to primary key of the Track
+
+- model: eh_app.Campus
+  fields:
+    name: college station
+
+- model: eh_app.College
+  fields:
+    name: EN
+
+- model: eh_app.Course
+  pk: 1
+  fields:
+    number: 431
+    title: Software Engineering
+    credits: 3
+    #Relation
+    department: CSCE
+
+- model: eh_app.Degree
+  fields:
+    name: CPSC
+    concentration:
+    #Relation
+    department: CSCE
+- model: eh_app.Degree
+  fields:
+    name: CEEN
+    #Relation
+    department: CSCE
+
+- model: eh_app.Department
+  fields:
+    name: CSCE
+    activities_per_semester: 2
+    advising_per_semester: 1
+    # Relations
+    activities: [1]
+    advisors: [125003892]
+    track: EH-CSCE
+    college: EN
+
+- model: eh_app.Exception
+  pk: 1
+  fields:
+    semester: 201831
+    student: 218009384
+
+- model: eh_app.Requirement
+  pk: 1
+  fields:
+    code: AB
+    description: Must attend one seminar by a visiting lecturer.
+
+- model: eh_app.Research
+  pk: 1
+  fields:
+    program: Creating monkeys
+    details: Creating monkeys from thin air. Very promising.
+    requirement_satisfied: 1
+    advisor: 125003892
+    department: CSCE
+
+- model: eh_app.Section
+  fields:
+    crn: 15029
+    number: 503
+    level: U
+    course: 1
+    teacher: 123004567
+    semester: 201911
+    campus: college station
+
+- model: eh_app.Semester
+  fields:
+    id: 202211
+    semester: Spring
+    academic_year: 2021-2022
+- model: eh_app.Semester
+  fields:
+    id: 201911
+    current: True
+    semester: Spring
+    academic_year: 2018-2019
+- model: eh_app.Semester
+  fields:
+    id: 201831
+    semester: Fall
+    academic_year: 2018-2019
+    successor: 201911
+- model: eh_app.Semester
+  fields:
+    id: 201811
+    semester: Spring
+    academic_year: 2017-2018
+    successor: 201831
+- model: eh_app.Semester
+  fields:
+    id: 201731
+    semester: Fall
+    academic_year: 2017-2018
+    successor: 201811
+- model: eh_app.Semester
+  fields:
+    id: 200131
+    semester: Fall
+    academic_year: 2001-2002
+    successor: 201731
+
+- model: eh_app.Student
+  fields:
+    uin: 218009384
+    first_name: Henry
+    last_name: Deng
+    email: henrydeng@tamu.edu
+    # Relations
+    majors: [CPSC]
+    start_semester: 201831
+    graduation_semester: 202211
+    activities_attended: [1]
+- model: eh_app.Student
+  fields:
+    uin: 358003821
+    first_name: Lydia
+    last_name: Lee
+    email: lylee@tamu.edu
+    # Relations
+    majors: [CEEN]
+    start_semester: 201831
+    graduation_semester: 202211
+    activities_attended: [1]
+- model: eh_app.Student
+  fields:
+    uin: 329003124
+    first_name: John
+    last_name: Lee
+    email: John@tamu.edu
+    # Relations
+    majors: [CPSC]
+    start_semester: 201811
+    graduation_semester: 202211
+    activities_attended: [1]
+- model: eh_app.Student
+  fields:
+    uin: 987001241
+    first_name: Wes
+    last_name: Hampton
+    email: wham@tamu.edu
+    # Relations
+    majors: [CEEN]
+    start_semester: 201731
+    graduation_semester: 202211
+    activities_attended: []
+- model: eh_app.Student
+  fields:
+    uin: 402009991
+    first_name: Future
+    last_name: Student
+    email: Future@tamu.edu
+    # Relations
+    majors: [CEEN]
+    start_semester: 202211
+    graduation_semester: 202211
+    activities_attended: []
+
+- model: eh_app.StudentAdvisorMeeting
+  pk: 1
+  fields:
+    date: 2019-2-1
+    details: Meeting with the advisor of their department
+    student: 218009384
+    advisor: 125003892
+    requirement_satisfied: 1
+    semester: 201911
+
+- model: eh_app.StudentResearch
+  pk: 1
+  fields:
+    course_credit: 1
+    details: Created a tiny monkey.
+    student: 218009384
+    research: 1
+    semester: 201911
+
+- model: eh_app.StudentSectionEnrollment
+  pk: 1
+  fields:
+    grade: A
+    repeat: No
+    section: 15029
+    student: 218009384
+
+- model: eh_app.StudentSemesterStatus
+  pk: 1
+  fields:
+    hours_attempted: 3
+    hours_earned: 3
+    hours_passed: 3
+    quality_points: 12
+    semester_gpa: 4.0
+    finalized: True
+    status: Good Standing
+    student: 218009384
+    semester: 201831
+- model: eh_app.StudentSemesterStatus
+  pk: 2
+  fields:
+    hours_attempted: 3
+    student: 218009384
+    semester: 201911
+    predecessor: 1
+
+- model: eh_app.StudentTrackEnrollment
+  pk: 1
+  fields:
+    student: 218009384
+    track: EH-CSCE
+    semester: 201911
+    campus: college station
+
+- model: eh_app.Teacher
+  fields:
+    uin: 123004567
+    first_name: William
+    last_name: Shatner
+
+- model: eh_app.Track
+  pk: EH-CSCE
+  fields:
+    name: CSCE Engineering Honors
+    semester_started: 200131
+    requirements: 1 # Relates to TrackRequirements
+
+- model: eh_app.TrackRequirements
+  pk: 1
+  fields:
+    per_sem: 1
+    description: You must write a 10 page paper about a new emerging technology that you find fascinating.

@@ -1,0 +1,57 @@
+{% extends 'eh_app/top-bar.html' %}
+
+{% block content %}
+<div class="student-list-content">
+
+  <button class="btn btn-primary"><a href="{% url 'home' %}">Back</a></button>
+  <div class="grid-list-header">
+    <div>First Name </div>
+    <div>Last Name </div>
+    <div>Middle Name</div>
+    <div>UIN</div>
+    <div>email</div>
+    <div>Times on Probation</div>
+    <div>Times Dismissed</div>
+    <div>GPA</div>
+    <div>First Year Grace?</div>
+    <div>Status Based on GPA Alone</div>
+    <div>Degree Candidate?</div>
+    <div>Graduated?</div>
+    <div>Major(s)</div>
+    <div>Minor(s)</div>
+    <div>Start Semester</div>
+  </div>
+
+  <!-- ------- This is how it should look after linking db data -->
+  {% for student in students %}
+    <div class="grid-list">
+      <div> {{ student.first_name }} </div>
+      <div> {{ student.last_name }} </div>
+      <div> {{ student.middle_name}} </div>
+      <div> {{ student.uin }} </div>
+      <div> {{ student.email }} </div>
+      <div> {{ student.times_on_probation}} </div>
+      <div> {{ student.times_dismissed}} </div>
+      <div> {{ student.cumulative_gpa }} </div>
+      <div> {{ student.first_year_grace }} </div>
+      <div> {{ student.status_gpa_alone }} </div>
+      <div> {{ student.degree_candidate }} </div>
+      <div> {{ student.graduated }} </div>
+      <div> {{ student.major_names }} </div>
+      <div> {{ student.minor_names }} </div>
+      <div> {{ student.start_semester }} </div>
+    </div>
+  {% endfor %}
+
+
+  <!-- <div class="grid-list">
+    <div>Fake</div>
+    <div>Data</div>
+    <div>Not a UIN</div>
+  </div> -->
+
+
+
+
+</div>
+{% endblock %}
